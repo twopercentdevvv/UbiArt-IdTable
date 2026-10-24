@@ -1,6 +1,4 @@
-# based on wukko's implementation - https://github.com/wukko/ubiart-id-table
-# platform list from mzommer's ubiartpy - https://github.com/MZommer/UbiArtPY/tree/dev
-# if you have any issues with previous games, please make an issue!
+# if it doesn't work correctly, please make an issue on the repository page!
 import os
 import struct
 import sys
