@@ -18,7 +18,7 @@ python main.py /path/to/ipks
 ```
 
 ## Notes
-- This might not work on some games (like Just Dance 2014), as there is a unknown hash which I can’t seem to reverse-engineer (*0x7BA83698*).
+- This might not work on some games (like Just Dance 2014), as there is an unknown hash which I can’t seem to reverse-engineer (*0x7BA83698*).
 - The files are added in alphabetical order, each using their own bundle number (except for base game bundles). 
 - If you’re working with other UbiArt games and you have issues, you can open an issue in the repo.
 
