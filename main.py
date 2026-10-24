@@ -5,7 +5,7 @@ import sys
 from collections import Counter
 
 PLATFORMS = [
-    "pc", "x360", "ps3", "orbis", "wiiu", "durango", "nx", "ggp", "scarlett", "prospero", "wii",
+    "pc", "x360", "ps3", "orbis", "wiiu", "durango", "nx", "ggp", "scarlett", "prospero", "wii"
     # "ctr", "emuwii", "vita", "ipad", "posenet", "blazepose", "unknown", "invalid"
 ]
 BASE = ["bundle", "bundlelogic", "logicbundle", "bootbundlelogic"]
