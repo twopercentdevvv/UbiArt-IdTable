@@ -1,12 +1,15 @@
 # based on wukko's implementation - https://github.com/wukko/ubiart-id-table
-# this has only been tested with Just Dance (2016-2022) ipks
+# platform list from mzommer's ubiartpy - https://github.com/MZommer/UbiArtPY/tree/dev
 # if you have any issues with previous games, please make an issue!
 import os
 import struct
 import sys
 from collections import Counter
 
-PLATFORMS = ["pc", "durango", "scarlett", "orbis", "prospero", "ggp", "nx", "wiiu", "x360", "ps3"]
+PLATFORMS = [
+    "pc", "x360", "ps3", "orbis", "wiiu", "durango", "nx", "ggp", "scarlett", "prospero", "wii",
+    # "ctr", "emuwii", "vita", "ipad", "posenet", "blazepose", "unknown", "invalid"
+]
 BASE = ["bundle", "bundlelogic", "logicbundle", "bootbundlelogic"]
 BASE_VALUE = 0
 EXTRA_HASH = 0x9CB1BD20
@@ -68,9 +71,9 @@ def main():
         sys.exit("no files found")
 
     suffix = "_%s.ipk" % platform
-    stems = [f[:-len(suffix)] for f in ipks if f.lower().endswith(suffix)]
+    stems = [f[:-len(suffix)] for f in ipks if f.lower().endswith(suffix) and not f.lower().startswith("patch")]
     base = [s for s in stems if s.lower() in BASE]
-    rest = sorted(s for s in stems if s.lower() not in BASE)
+    rest = sorted((s for s in stems if s.lower() not in BASE), key=str.lower)
 
     entries = {EXTRA_HASH: 0, string_id("secure_fat.gf"): BASE_VALUE}
     for s in base:

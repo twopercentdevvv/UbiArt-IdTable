@@ -1,8 +1,9 @@
 # UbiArt-IdTable
-
-if you don't know what this is for, you don't need it
+A tool (that works properly) to generate idtable.idt for any UbiArt game.
 
 ## How to use
+
+if you don’t know what this is for, you probably don’t need it
 
 Put the script in the directory with your `.ipk` files and run it:
 
@@ -17,5 +18,6 @@ python main.py /path/to/ipks
 ```
 
 ## Notes
-- I have issues getting this to work on Just Dance (2014-2015), I will update it once I figure put how to do it properly.
-- Meanwhile, if you're working with other UbiArt games and you have issues, you can open an issue in the repo.
+- This might not work on some games (like Just Dance 2014), as there is a unknown hash which I can’t seem to reverse-engineer (*0x7BA83698*).
+- The files are added in alphabetical order, each using their own bundle number (except for base game bundles). 
+- If you're working with other UbiArt games and you have issues, you can open an issue in the repo.
