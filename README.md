@@ -25,4 +25,4 @@ python main.py /path/to/ipks
 ## Credits
 - [wukko](https://github.com/wukko) for his original [generateIDTable.py](https://github.com/wukko/ubiart-id-table/blob/main/generateIDTable.py)
 - [InvoxiPlayGames](https://github.com/InvoxiPlayGames) for her original [UbiArt CRC32 implementation](https://gist.github.com/InvoxiPlayGames/4320e6781fa8d17baedd22f6e6ff779c)
-- [Eliott](https://github.com/MZommer) for [UbiArtPY](https://github.com/MZommer/UbiArtPY/tree/dev/UbiArtPY) (My code is based on his StringID implementation and Platforms list)
+- [Eliott](https://github.com/MZommer) for [UbiArtPY](https://github.com/MZommer/UbiArtPY/tree/dev/UbiArtPY) (StringID.cpp and Platforms.py)
