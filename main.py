@@ -1,4 +1,6 @@
+#!/usr/bin/env python3
 # if it doesn't work correctly, please make an issue on the repository page!
+
 import os
 import struct
 import sys
