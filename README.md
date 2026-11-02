@@ -18,8 +18,8 @@ python main.py /path/to/ipks
 ```
 
 ### For Just Dance 2018/Just Dance 2019
-If your song is in songsToBeKeptUnlocked in GameConfig: \
-Put your mapname inside songsToBeKeptUnlocked in main.py \
+If your song is in `songsToBeKeptUnlocked` inside of `gameconfig.isc.ckd`: \
+Put your mapname inside `songsToBeKeptUnlocked` in `main.py` \
 (if this isn't your case, just ignore this)
 
 ## Notes
