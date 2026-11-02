@@ -11,26 +11,26 @@ bext = ".ipk"
 sfat = "secure_fat.gf"
 ignore = ["patch"] # don't add to idtable
 base = ["bundle", "bundlelogic", "logicbundle", "bootbundlelogic"] # bundles the game NEEDS to boot
-offset = 0 # this is 3 for jd2017pc it seems
-songsToBeKeptUnlocked = [ # from jd2018 and jd2019, these also include kids mode songs
-    "24k", "automaton", "beepbeep", "blue", "bubblepop", "chantaje", "daddycool",
-    "fearlesspiratekids", "footloose", "footloosekids", "funkyrobotkids", "happyfarmkids",
-    "howfar", "magichalloweenkids", "missamazingkids", "pixielandkids", "wakawaka", "wakawakakids",
-    "bang2019", "bumbumtamtam", "calypso", "finesse", "fireonthedancefloor", "ghostkids", "havana",
-    "imstillstanding", "jurassickids", "madlove", "merrychristmaskids", "mimimi",
-    "monstersacademykids", "narco", "ninjakids", "notearsleft", "omg", "pocoloco",
-    "saintpatrickkids", "spacegirlkids", "theexplorerkids", "waterme", "workwork",
+offset = 0 # this is 3 for jd2017pc it seems, if you arent having issues don’t touch this
+songsToBeKeptUnlocked = [ # exclusively for jd2018 and jd2019, songs unlocked at the start + kids mode songs
+#    "24k", "automaton", "beepbeep", "blue", "bubblepop", "chantaje", "daddycool",
+#    "fearlesspiratekids", "footloose", "footloosekids", "funkyrobotkids", "happyfarmkids",
+#    "howfar", "magichalloweenkids", "missamazingkids", "pixielandkids", "wakawaka", "wakawakakids",
+#    "bang2019", "bumbumtamtam", "calypso", "finesse", "fireonthedancefloor", "ghostkids", "havana",
+#    "imstillstanding", "jurassickids", "madlove", "merrychristmaskids", "mimimi",
+#    "monstersacademykids", "narco", "ninjakids", "notearsleft", "omg", "pocoloco",
+#    "saintpatrickkids", "spacegirlkids", "theexplorerkids", "waterme", "workwork",
 ]
-extras = [ # dance lab, its like this on the original bundle. each array gets its own number, after the last normal one
+extras = [ # dance lab, its like this on the original bundle. each array gets its own number, after the last normal one. if you don’t need this don't touch it.
     [
-        "jdmastronaut", "jdmbaseballplayer", "jdmbikerider", "jdmbodybuilder", "jdmbollywood2",
-        "jdmcaveman", "jdmchacha", "jdmcoalminer", "jdmelephant", "jdmelvis", "jdmenglishguard",
-        "jdmflamingoclassic", "jdmflamingorock", "jdmflies", "jdmfootballcelebration", "jdmfrog",
-        "jdmgreekgym", "jdmhakken", "jdmhonkman", "jdmjellyfish", "jdmkazachok", "jdmknight",
-        "jdmlumberjack", "jdmmaracas", "jdmmetaldance", "jdmmusette", "jdmninja",
-        "jdmpianoplayercrazy", "jdmpoliceman", "jdmpopdiscostar", "jdmreferee", "jdmribbondance",
-        "jdmsnowfight", "jdmtennisplayer", "jdmtexanfarmer", "jdmtribaldance", "jdmvahine",
-        "jdmvampire", "jdmvogue", "jdmwaiter",
+#        "jdmastronaut", "jdmbaseballplayer", "jdmbikerider", "jdmbodybuilder", "jdmbollywood2",
+#        "jdmcaveman", "jdmchacha", "jdmcoalminer", "jdmelephant", "jdmelvis", "jdmenglishguard",
+#        "jdmflamingoclassic", "jdmflamingorock", "jdmflies", "jdmfootballcelebration", "jdmfrog",
+#        "jdmgreekgym", "jdmhakken", "jdmhonkman", "jdmjellyfish", "jdmkazachok", "jdmknight",
+#        "jdmlumberjack", "jdmmaracas", "jdmmetaldance", "jdmmusette", "jdmninja",
+#        "jdmpianoplayercrazy", "jdmpoliceman", "jdmpopdiscostar", "jdmreferee", "jdmribbondance",
+#        "jdmsnowfight", "jdmtennisplayer", "jdmtexanfarmer", "jdmtribaldance", "jdmvahine",
+#        "jdmvampire", "jdmvogue", "jdmwaiter",
     ],
     [],
 ]
