@@ -17,7 +17,7 @@ Or pass a path to the folder:
 python main.py /path/to/ipks
 ```
 
-## For Just Dance 2018/Just Dance 2019
+### For Just Dance 2018/Just Dance 2019
 If your song is in songsToBeKeptUnlocked in GameConfig: \
 Put your mapname inside songsToBeKeptUnlocked in main.py \
 (if this isn't your case, just ignore this)
