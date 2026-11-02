@@ -11,6 +11,7 @@ bext = ".ipk"
 sfat = "secure_fat.gf"
 ignore = ["patch"] # don't add to idtable
 base = ["bundle", "bundlelogic", "logicbundle", "bootbundlelogic"] # bundles the game NEEDS to boot
+offset = 0 # this is 3 for jd2017pc it seems
 songsToBeKeptUnlocked = [ # from jd2018 and jd2019, these also include kids mode songs
     "24k", "automaton", "beepbeep", "blue", "bubblepop", "chantaje", "daddycool",
     "fearlesspiratekids", "footloose", "footloosekids", "funkyrobotkids", "happyfarmkids",
@@ -104,16 +105,17 @@ def IDTable(cwd=None, out=out, bext=bext, sfat=sfat, ignore=ignore, base=base, p
     skip = set(base) | set(songsToBeKeptUnlocked) | {x for g in extras for x in g}
     rest = sorted((s for s in stems if s.lower() not in skip), key=str.lower)
 
-    entries = {0x9CB1BD20: 0, StringID(sfat): 0}
+    entries = {0x9CB1BD20: 0, StringID(sfat): offset}
     for s in bases:
-        entries[StringID(s + suffix)] = 0
+        entries[StringID(s + suffix)] = offset
     for s in unlocked:
         entries[StringID(s + suffix)] = 0
     for i, s in enumerate(rest):
-        entries[StringID(s + suffix)] = 1 + i
+        entries[StringID(s + suffix)] = offset + 1 + i
     for i, g in enumerate(grouped):
         for s in g:
-            entries[StringID(s + suffix)] = 1 + len(rest) + i
+            entries[StringID(s + suffix)] = offset + 1 + len(rest) + i
+
 
     path = os.path.join(cwd, out)
     with open(path, "wb") as f:
