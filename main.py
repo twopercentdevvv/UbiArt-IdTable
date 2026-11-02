@@ -11,6 +11,28 @@ bext = ".ipk"
 sfat = "secure_fat.gf"
 ignore = ["patch"] # don't add to idtable
 base = ["bundle", "bundlelogic", "logicbundle", "bootbundlelogic"] # bundles the game NEEDS to boot
+songsToBeKeptUnlocked = [ # from jd2018 and jd2019, these also include kids mode songs
+    "24k", "automaton", "beepbeep", "blue", "bubblepop", "chantaje", "daddycool",
+    "fearlesspiratekids", "footloose", "footloosekids", "funkyrobotkids", "happyfarmkids",
+    "howfar", "magichalloweenkids", "missamazingkids", "pixielandkids", "wakawaka", "wakawakakids",
+    "bang2019", "bumbumtamtam", "calypso", "finesse", "fireonthedancefloor", "ghostkids", "havana",
+    "imstillstanding", "jurassickids", "madlove", "merrychristmaskids", "mimimi",
+    "monstersacademykids", "narco", "ninjakids", "notearsleft", "omg", "pocoloco",
+    "saintpatrickkids", "spacegirlkids", "theexplorerkids", "waterme", "workwork",
+]
+extras = [ # dance lab, its like this on the original bundle. each array gets its own number, after the last normal one
+    [
+        "jdmastronaut", "jdmbaseballplayer", "jdmbikerider", "jdmbodybuilder", "jdmbollywood2",
+        "jdmcaveman", "jdmchacha", "jdmcoalminer", "jdmelephant", "jdmelvis", "jdmenglishguard",
+        "jdmflamingoclassic", "jdmflamingorock", "jdmflies", "jdmfootballcelebration", "jdmfrog",
+        "jdmgreekgym", "jdmhakken", "jdmhonkman", "jdmjellyfish", "jdmkazachok", "jdmknight",
+        "jdmlumberjack", "jdmmaracas", "jdmmetaldance", "jdmmusette", "jdmninja",
+        "jdmpianoplayercrazy", "jdmpoliceman", "jdmpopdiscostar", "jdmreferee", "jdmribbondance",
+        "jdmsnowfight", "jdmtennisplayer", "jdmtexanfarmer", "jdmtribaldance", "jdmvahine",
+        "jdmvampire", "jdmvogue", "jdmwaiter",
+    ],
+    [],
+]
 p = [
     "pc", "x360", "ps3", "orbis", "wiiu", "durango", "nx", "ggp", "scarlett", "prospero", "wii",
     # "ctr", "emuwii", "vita", "ipad", "posenet", "blazepose", "unknown", "invalid"
@@ -77,13 +99,21 @@ def IDTable(cwd=None, out=out, bext=bext, sfat=sfat, ignore=ignore, base=base, p
         if f.lower().endswith(suffix) and not f.lower().startswith(tuple(ignore))
     ]
     bases = [s for s in stems if s.lower() in base]
-    rest = sorted((s for s in stems if s.lower() not in base), key=str.lower)
+    unlocked = [s for s in stems if s.lower() in songsToBeKeptUnlocked]
+    grouped = [[s for s in stems if s.lower() in g] for g in extras]
+    skip = set(base) | set(songsToBeKeptUnlocked) | {x for g in extras for x in g}
+    rest = sorted((s for s in stems if s.lower() not in skip), key=str.lower)
 
     entries = {0x9CB1BD20: 0, StringID(sfat): 0}
     for s in bases:
         entries[StringID(s + suffix)] = 0
+    for s in unlocked:
+        entries[StringID(s + suffix)] = 0
     for i, s in enumerate(rest):
         entries[StringID(s + suffix)] = 1 + i
+    for i, g in enumerate(grouped):
+        for s in g:
+            entries[StringID(s + suffix)] = 1 + len(rest) + i
 
     path = os.path.join(cwd, out)
     with open(path, "wb") as f:
