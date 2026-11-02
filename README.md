@@ -17,10 +17,15 @@ Or pass a path to the folder:
 python main.py /path/to/ipks
 ```
 
+## For Just Dance 2018/Just Dance 2019
+If your song is in songsToBeKeptUnlocked in GameConfig: \
+Put your mapname inside songsToBeKeptUnlocked in main.py \
+(if this isn't your case, just ignore this)
+
 ## Notes
 - This might not work on some games (like Just Dance 2014), as there is an unknown hash which I can’t seem to reverse-engineer (*0x7BA83698*).
 - The files are added in alphabetical order, each using their own bundle number (except for base game bundles). 
-- If you’re working with other UbiArt games and you have issues, you can open an issue in the repo.
+- If you’re working with other UbiArt games and you have issues, you can open an issue in the repo. You can also try changing the offset value. This should fix most games.
 
 ## Credits
 - [wukko](https://github.com/wukko) for his original [generateIDTable.py](https://github.com/wukko/ubiart-id-table/blob/main/generateIDTable.py)
